@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+$ag-icons-path: "../node_modules/ag-grid-community/src/styles/ag-theme-balham/icons/";
+
+@import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham.scss";
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+$odd-row-background-color: rgb(119, 211, 250);
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
