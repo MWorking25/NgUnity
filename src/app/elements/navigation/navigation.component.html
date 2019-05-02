@@ -1,0 +1,177 @@
+<mat-toolbar class="toolbar" color="primary">
+  <mat-toolbar-row>
+    <mat-icon mat-raised-button class="pointercursor" (click)="drawer.toggle()">menu</mat-icon>
+    <span>Header</span>
+    <span class="toolbar-spacer"></span>
+
+    <div class="col-md-4 d-none d-xl-block d-md-block d-lg-block"><input class="form-control" placeholder="Sreach" [(ngModel)]="search" autocomplete="off"></div>
+    <img src="../../assets/images/avatars/man.png" matTooltip="Profile" [matMenuTriggerFor]="menu1" class="img-fluid avatar pointercursor" />
+    <mat-menu #menu1="matMenu">
+      <mat-list role="list">
+          <mat-list-item role="listitem">Item 1</mat-list-item>
+          <mat-list-item role="listitem">Item 2</mat-list-item>
+          <mat-list-item role="listitem">Item 3</mat-list-item>
+        </mat-list>
+    </mat-menu>
+    <mat-icon matTooltip="Notifications" matBadge="15" matBadgeColor="accent" matBadgePosition="after" class="pointercursor"  [matMenuTriggerFor]="menu">notifications</mat-icon>
+    <mat-menu #menu="matMenu">
+        <mat-list role="list">
+            <mat-list-item role="listitem">Item 1</mat-list-item>
+            <mat-list-item role="listitem">Item 2</mat-list-item>
+            <mat-list-item role="listitem">Item 3</mat-list-item>
+          </mat-list>
+      </mat-menu>
+    <mat-icon class="toolbar-icon pointercursor" matTooltip="Themes" (click)="drawerTheme.toggle()">format_color_fill</mat-icon>
+    <mat-menu #theme="matMenu">
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let data of dataItems" class="mt-1" (click)="SelectedItem(data)">
+          <div class="row ml-auto mr-auto">
+            <div class="col-12 col-md-12" >
+              <div class="row ml-1 mt-2">
+                <div class="col-6 p-4" [primarybg]="data.primary"></div>
+                <div class="col-6 p-4" [accentbg]="data.accent"></div>
+              </div>
+            </div>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+
+  <mat-drawer #drawer [mode]="over" position="start">
+
+    <mat-toolbar class="userprofile">
+      <div class="col-4 col-md-4">
+        <img src="../../assets/images/avatars/man.png" class="sidebaravtar" />
+      </div>
+
+
+    </mat-toolbar>
+
+    <mat-list role="list" class="menulist">
+      <mat-list-item class="ml-2" role="listitem">
+        <mat-icon class="menu-icon">dashboard</mat-icon>Home
+      </mat-list-item>
+    </mat-list>
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="menu-icon">dashboard</mat-icon>
+            Companies
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <!-- <mat-list role="list">
+              <mat-list-item role="listitem"><mat-icon class="menu-icon" >chevron_right</mat-icon>Counts</mat-list-item>
+              <mat-list-item role="listitem"><mat-icon class="menu-icon" >chevron_right</mat-icon>Analytics</mat-list-item>
+            </mat-list> -->
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="menu-icon">note</mat-icon>
+            Forms
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Item 1
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Item 2
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Item 3
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="menu-icon">dashboard</mat-icon>
+            MasterMenu 2
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Item 1
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Item 2
+          </mat-list-item>
+          <mat-list-item role="listitem">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Item 3
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+
+  </mat-drawer>
+
+  <mat-drawer #drawerTheme [mode]="push" position="end">
+
+    <div class="col-12 col-md-12 mt-4">
+      <div class="row">
+          <div class="col-md-12 col-12">
+            <h5>Theme Colors</h5>
+          </div>
+      </div>
+      <div class="row mt-4">
+      <mat-list role="list" class="mt-4">
+        <mat-list-item role="listitem">
+          <div class="row ml-auto mr-auto mt-4">
+            <div class="col-6 col-md-6" *ngFor="let data of dataItems" (click)="SelectedItem(data)">
+              <div class="row ml-1 mt-2">
+                <div class="col-6 p-4" [primarybg]="data.primary"></div>
+                <div class="col-6 p-4" [accentbg]="data.accent"></div>
+              </div>
+            </div>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    </div>
+
+
+    <div class="col-12 col-md-12 mt-5em">
+        <mat-divider></mat-divider>
+        <div class="row">
+            <div class="col-md-12 col-12 mt-2">
+              <h5>Sidebar Background</h5>
+            </div>
+        </div>
+            <div class="row mt-4">
+                <div class="col-md-4 col-4">
+                  <input type="color" class="col-12 col-md-12 form-control" [(ngModel)]="profilebg.firstcolor">
+                </div>
+                <div class="col-md-4 col-4">
+                  <input type="color" class="col-12 col-md-12 form-control" [(ngModel)]="profilebg.secondcolor">
+                </div>
+                <div class="col-md-4 col-4">
+                  <input type="number" class="col-12 col-md-12 form-control" [(ngModel)]="profilebg.colordegree">
+                </div>
+           </div> 
+
+           <div class="row mt-4">
+            <div class="col-md-12 col-12">
+              <button mat-button mat-stroked-button class="col-md-12 col-12" (click)="SelectedItem(profilebg)">Save</button>
+            </div>
+       </div> 
+
+      </div>
+
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -16,7 +16,7 @@ import { OffersComponent } from './master/offers/offers.component';
 
 const routes: Routes = [
   {path:"",component:SigninComponent},
-  {path:"dashboard",component:DashboardComponent}
+  {path:"Authorised",loadChildren:"./elements/elements.module#ElementsModule"}
 ];
 
 @NgModule({

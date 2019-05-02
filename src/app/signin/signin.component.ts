@@ -41,9 +41,7 @@ export class SigninComponent implements OnInit {
     if(this.userAuth.email != '' && this.userAuth.password != '' )
     {
       console.log(this.userAuth);
-      this._Route.navigate(['/dashboard'])
+      this._Route.navigate(['/Authorised'])
     }
-    
   }
-
 }
