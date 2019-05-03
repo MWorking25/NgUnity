@@ -33,6 +33,7 @@ import { RestraurantsComponent } from '../master/restraurants/restraurants.compo
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { OffersComponent } from '../master/offers/offers.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { RailwayApisComponent } from '../master/railway-apis/railway-apis.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     DashboardComponent,
     OffersComponent,
     NavigationComponent,  
+    RailwayApisComponent,
     ThemesDirective
   ],
   imports: [

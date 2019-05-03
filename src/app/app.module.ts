@@ -24,12 +24,13 @@ import {
 } from '@angular/material';
 import { SigninComponent } from './signin/signin.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { ThemesDirective } from './directives/themes.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     NavigationComponent,
+  
     
   ],
   imports: [

@@ -8,9 +8,9 @@
     <img src="../../assets/images/avatars/man.png" matTooltip="Profile" [matMenuTriggerFor]="menu1" class="img-fluid avatar pointercursor" />
     <mat-menu #menu1="matMenu">
       <mat-list role="list">
-          <mat-list-item role="listitem">Item 1</mat-list-item>
-          <mat-list-item role="listitem">Item 2</mat-list-item>
-          <mat-list-item role="listitem">Item 3</mat-list-item>
+          <mat-list-item role="listitem">Profile</mat-list-item>
+          <mat-list-item role="listitem">Lock</mat-list-item>
+          <mat-list-item role="listitem">SignOut</mat-list-item>
         </mat-list>
     </mat-menu>
     <mat-icon matTooltip="Notifications" matBadge="15" matBadgeColor="accent" matBadgePosition="after" class="pointercursor"  [matMenuTriggerFor]="menu">notifications</mat-icon>
@@ -51,42 +51,48 @@
 
 
     </mat-toolbar>
-
-    <mat-list role="list" class="menulist">
-      <mat-list-item class="ml-2" role="listitem">
-        <mat-icon class="menu-icon">dashboard</mat-icon>Home
-      </mat-list-item>
-    </mat-list>
     <mat-accordion>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header (click)="drawer.toggle()" routerLink="/Authorised/dashboard">
+              <mat-panel-title>
+                <mat-icon class="menu-icon">dashboard</mat-icon>
+                Dashboard
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>
+    
+
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <mat-icon class="menu-icon">dashboard</mat-icon>
-            Companies
+            <mat-icon class="menu-icon">list</mat-icon>
+            Masters
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <!-- <mat-list role="list">
-              <mat-list-item role="listitem"><mat-icon class="menu-icon" >chevron_right</mat-icon>Counts</mat-list-item>
-              <mat-list-item role="listitem"><mat-icon class="menu-icon" >chevron_right</mat-icon>Analytics</mat-list-item>
-            </mat-list> -->
+        <mat-list role="list">
+              <mat-list-item role="listitem" (click)="drawer.toggle()" routerLink="/Authorised/areas" routerLinkActive="active" ><mat-icon class="menu-icon" >chevron_right</mat-icon>Areas</mat-list-item>
+              <mat-list-item role="listitem" (click)="drawer.toggle()" routerLink="/Authorised/users" routerLinkActive="active"  ><mat-icon class="menu-icon" >chevron_right</mat-icon>Users</mat-list-item>
+              <mat-list-item role="listitem" (click)="drawer.toggle()" routerLink="/Authorised/members" routerLinkActive="active"><mat-icon class="menu-icon" >chevron_right</mat-icon>Members</mat-list-item>
+              <mat-list-item role="listitem" (click)="drawer.toggle()" routerLink="/Authorised/railways" routerLinkActive="active"><mat-icon class="menu-icon" >chevron_right</mat-icon>Railway APIs</mat-list-item>
+              <mat-list-item role="listitem" (click)="drawer.toggle()" routerLink="/Authorised/offers" routerLinkActive="active"><mat-icon class="menu-icon" >chevron_right</mat-icon>Offers</mat-list-item>
+            </mat-list>
       </mat-expansion-panel>
 
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <mat-icon class="menu-icon">note</mat-icon>
-            Forms
+            <mat-icon class="menu-icon">hotel</mat-icon>
+            Hotels
           </mat-panel-title>
         </mat-expansion-panel-header>
         <mat-list role="list">
-          <mat-list-item role="listitem">
-            <mat-icon class="menu-icon">chevron_right</mat-icon> Item 1
+          <mat-list-item role="listitem" (click)="drawer.toggle()">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Details
           </mat-list-item>
-          <mat-list-item role="listitem">
-            <mat-icon class="menu-icon">chevron_right</mat-icon> Item 2
-          </mat-list-item>
-          <mat-list-item role="listitem">
-            <mat-icon class="menu-icon">chevron_right</mat-icon> Item 3
+        
+          <mat-list-item role="listitem" (click)="drawer.toggle()">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Bookings
           </mat-list-item>
         </mat-list>
       </mat-expansion-panel>
@@ -94,25 +100,104 @@
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <mat-icon class="menu-icon">dashboard</mat-icon>
-            MasterMenu 2
+            <mat-icon class="menu-icon">beach_access</mat-icon>
+           Experiences
           </mat-panel-title>
         </mat-expansion-panel-header>
         <mat-list role="list">
-          <mat-list-item role="listitem">
-            <mat-icon class="menu-icon">chevron_right</mat-icon> Item 1
+          <mat-list-item role="listitem" (click)="drawer.toggle()">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Details
           </mat-list-item>
-          <mat-list-item role="listitem">
-            <mat-icon class="menu-icon">chevron_right</mat-icon> Item 2
-          </mat-list-item>
-          <mat-list-item role="listitem">
-            <mat-icon class="menu-icon">chevron_right</mat-icon> Item 3
+          
+          <mat-list-item role="listitem" (click)="drawer.toggle()">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Bookings
           </mat-list-item>
         </mat-list>
       </mat-expansion-panel>
 
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="menu-icon">directions_bus</mat-icon>
+           Buses
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-list-item role="listitem" (click)="drawer.toggle()">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Details
+          </mat-list-item>
+         
+          <mat-list-item role="listitem" (click)="drawer.toggle()">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Bookings
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+     
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="menu-icon">directions_car</mat-icon>
+           Cabs
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-list-item role="listitem" (click)="drawer.toggle()">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Details
+          </mat-list-item>
+        
+          <mat-list-item role="listitem" (click)="drawer.toggle()">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Bookings
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+      
+      
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="menu-icon">fastfood</mat-icon>
+           Restraurants
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-list-item role="listitem" (click)="drawer.toggle()">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Details
+          </mat-list-item>
+         
+          <mat-list-item role="listitem" (click)="drawer.toggle()">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Orders
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="menu-icon">assignment</mat-icon>
+           Reports
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+        
+          <mat-list-item role="listitem" (click)="drawer.toggle()">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Hotels Booking
+          </mat-list-item>
+
+          <mat-list-item role="listitem" (click)="drawer.toggle()">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Buses Booking
+          </mat-list-item>
+
+          <mat-list-item role="listitem" (click)="drawer.toggle()">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Cabs Booking
+          </mat-list-item>
+
+          <mat-list-item role="listitem" (click)="drawer.toggle()">
+            <mat-icon class="menu-icon">chevron_right</mat-icon> Restraurants Orders
+          </mat-list-item>
+        
+        </mat-list>
+      </mat-expansion-panel>
     </mat-accordion>
-
   </mat-drawer>
 
   <mat-drawer #drawerTheme [mode]="push" position="end">
@@ -127,7 +212,7 @@
       <mat-list role="list" class="mt-4">
         <mat-list-item role="listitem">
           <div class="row ml-auto mr-auto mt-4">
-            <div class="col-6 col-md-6" *ngFor="let data of dataItems" (click)="SelectedItem(data)">
+            <div class="col-6 col-md-6" *ngFor="let data of dataItems" (click)="SelectedItem(data);;drawerTheme.toggle()">
               <div class="row ml-1 mt-2">
                 <div class="col-6 p-4" [primarybg]="data.primary"></div>
                 <div class="col-6 p-4" [accentbg]="data.accent"></div>
@@ -161,10 +246,9 @@
 
            <div class="row mt-4">
             <div class="col-md-12 col-12">
-              <button mat-button mat-stroked-button class="col-md-12 col-12" (click)="SelectedItem(profilebg)">Save</button>
+              <button mat-button mat-stroked-button class="col-md-12 col-12" (click)="SelectedItem(profilebg);drawerTheme.toggle()">Save</button>
             </div>
        </div> 
-
       </div>
 
   </mat-drawer>

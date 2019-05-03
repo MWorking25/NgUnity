@@ -7,13 +7,15 @@
     --bgcolordeg:-90deg;
 
   }
+
+
 .userprofile
 {
     height: 8em;
     background-image: linear-gradient(var(--bgcolordeg), var(--bgcolor1), var(--bgcolor2));
 }
 
-.menulist > mat-list-item{
+.plain-menu{
     transition: right ease 1.5s;
     position: relative;
     &:hover {
