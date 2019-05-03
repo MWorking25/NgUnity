@@ -53,8 +53,8 @@
     </mat-toolbar>
     <mat-accordion>
 
-        <mat-expansion-panel>
-            <mat-expansion-panel-header (click)="drawer.toggle()" routerLink="/Authorised/dashboard">
+        <mat-expansion-panel  [(expanded)]="panelDashboard">
+            <mat-expansion-panel-header (click)="panelDashboard=panelDashboard?false:true;drawer.toggle()" routerLink="/Authorised/dashboard">
               <mat-panel-title>
                 <mat-icon class="menu-icon">dashboard</mat-icon>
                 Dashboard
@@ -63,7 +63,7 @@
           </mat-expansion-panel>
     
 
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel [(expanded)]="panelMaster">
         <mat-expansion-panel-header>
           <mat-panel-title>
             <mat-icon class="menu-icon">list</mat-icon>
@@ -71,15 +71,15 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <mat-list role="list">
-              <mat-list-item role="listitem" (click)="drawer.toggle()" routerLink="/Authorised/areas" routerLinkActive="active" ><mat-icon class="menu-icon" >chevron_right</mat-icon>Areas</mat-list-item>
-              <mat-list-item role="listitem" (click)="drawer.toggle()" routerLink="/Authorised/users" routerLinkActive="active"  ><mat-icon class="menu-icon" >chevron_right</mat-icon>Users</mat-list-item>
-              <mat-list-item role="listitem" (click)="drawer.toggle()" routerLink="/Authorised/members" routerLinkActive="active"><mat-icon class="menu-icon" >chevron_right</mat-icon>Members</mat-list-item>
-              <mat-list-item role="listitem" (click)="drawer.toggle()" routerLink="/Authorised/railways" routerLinkActive="active"><mat-icon class="menu-icon" >chevron_right</mat-icon>Railway APIs</mat-list-item>
-              <mat-list-item role="listitem" (click)="drawer.toggle()" routerLink="/Authorised/offers" routerLinkActive="active"><mat-icon class="menu-icon" >chevron_right</mat-icon>Offers</mat-list-item>
+              <mat-list-item role="listitem" (click)="panelMaster=panelMaster?false:true;drawer.toggle()" routerLink="/Authorised/areas" routerLinkActive="active" ><mat-icon class="menu-icon" >chevron_right</mat-icon>Areas</mat-list-item>
+              <mat-list-item role="listitem" (click)="panelMaster=panelMaster?false:true;drawer.toggle()" routerLink="/Authorised/users" routerLinkActive="active"  ><mat-icon class="menu-icon" >chevron_right</mat-icon>Users</mat-list-item>
+              <mat-list-item role="listitem" (click)="panelMaster=panelMaster?false:true;drawer.toggle()" routerLink="/Authorised/members" routerLinkActive="active"><mat-icon class="menu-icon" >chevron_right</mat-icon>Members</mat-list-item>
+              <mat-list-item role="listitem" (click)="panelMaster=panelMaster?false:true;drawer.toggle()" routerLink="/Authorised/railways" routerLinkActive="active"><mat-icon class="menu-icon" >chevron_right</mat-icon>Railway APIs</mat-list-item>
+              <mat-list-item role="listitem" (click)="panelMaster=panelMaster?false:true;drawer.toggle()" routerLink="/Authorised/offers" routerLinkActive="active"><mat-icon class="menu-icon" >chevron_right</mat-icon>Offers</mat-list-item>
             </mat-list>
       </mat-expansion-panel>
 
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel  [(expanded)]="panelHotel">
         <mat-expansion-panel-header>
           <mat-panel-title>
             <mat-icon class="menu-icon">hotel</mat-icon>
@@ -87,17 +87,17 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <mat-list role="list">
-          <mat-list-item role="listitem" (click)="drawer.toggle()">
+          <mat-list-item role="listitem" (click)="panelHotel=panelHotel?false:true;drawer.toggle()">
             <mat-icon class="menu-icon">chevron_right</mat-icon> Details
           </mat-list-item>
         
-          <mat-list-item role="listitem" (click)="drawer.toggle()">
+          <mat-list-item role="listitem" (click)="panelHotel=panelHotel?false:true;drawer.toggle()">
             <mat-icon class="menu-icon">chevron_right</mat-icon> Bookings
           </mat-list-item>
         </mat-list>
       </mat-expansion-panel>
 
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel  [(expanded)]="panelExp">
         <mat-expansion-panel-header>
           <mat-panel-title>
             <mat-icon class="menu-icon">beach_access</mat-icon>
@@ -105,17 +105,17 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <mat-list role="list">
-          <mat-list-item role="listitem" (click)="drawer.toggle()">
+          <mat-list-item role="listitem" (click)="panelExp=panelExp?false:true;drawer.toggle()">
             <mat-icon class="menu-icon">chevron_right</mat-icon> Details
           </mat-list-item>
           
-          <mat-list-item role="listitem" (click)="drawer.toggle()">
+          <mat-list-item role="listitem" (click)="panelExp=panelExp?false:true;drawer.toggle()">
             <mat-icon class="menu-icon">chevron_right</mat-icon> Bookings
           </mat-list-item>
         </mat-list>
       </mat-expansion-panel>
 
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel  [(expanded)]="panelBus">
         <mat-expansion-panel-header>
           <mat-panel-title>
             <mat-icon class="menu-icon">directions_bus</mat-icon>
@@ -123,17 +123,17 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <mat-list role="list">
-          <mat-list-item role="listitem" (click)="drawer.toggle()">
+          <mat-list-item role="listitem" (click)="panelBus=panelBus?false:true;drawer.toggle()">
             <mat-icon class="menu-icon">chevron_right</mat-icon> Details
           </mat-list-item>
          
-          <mat-list-item role="listitem" (click)="drawer.toggle()">
+          <mat-list-item role="listitem" (click)="panelBus=panelBus?false:true;drawer.toggle()">
             <mat-icon class="menu-icon">chevron_right</mat-icon> Bookings
           </mat-list-item>
         </mat-list>
       </mat-expansion-panel>
      
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel [(expanded)]="panelCab">
         <mat-expansion-panel-header>
           <mat-panel-title>
             <mat-icon class="menu-icon">directions_car</mat-icon>
@@ -141,18 +141,18 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <mat-list role="list">
-          <mat-list-item role="listitem" (click)="drawer.toggle()">
+          <mat-list-item role="listitem" (click)="panelCab=panelCab?false:true;drawer.toggle()">
             <mat-icon class="menu-icon">chevron_right</mat-icon> Details
           </mat-list-item>
         
-          <mat-list-item role="listitem" (click)="drawer.toggle()">
+          <mat-list-item role="listitem" (click)="panelCab=panelCab?false:true;drawer.toggle()">
             <mat-icon class="menu-icon">chevron_right</mat-icon> Bookings
           </mat-list-item>
         </mat-list>
       </mat-expansion-panel>
       
       
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel  [(expanded)]="panelRestro">
         <mat-expansion-panel-header>
           <mat-panel-title>
             <mat-icon class="menu-icon">fastfood</mat-icon>
@@ -160,17 +160,17 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <mat-list role="list">
-          <mat-list-item role="listitem" (click)="drawer.toggle()">
+          <mat-list-item role="listitem" (click)="panelRestro=panelRestro?false:true;drawer.toggle()">
             <mat-icon class="menu-icon">chevron_right</mat-icon> Details
           </mat-list-item>
          
-          <mat-list-item role="listitem" (click)="drawer.toggle()">
+          <mat-list-item role="listitem" (click)="panelRestro=panelRestro?false:true;drawer.toggle()">
             <mat-icon class="menu-icon">chevron_right</mat-icon> Orders
           </mat-list-item>
         </mat-list>
       </mat-expansion-panel>
 
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel  [(expanded)]="panelReport">
         <mat-expansion-panel-header>
           <mat-panel-title>
             <mat-icon class="menu-icon">assignment</mat-icon>
@@ -179,19 +179,19 @@
         </mat-expansion-panel-header>
         <mat-list role="list">
         
-          <mat-list-item role="listitem" (click)="drawer.toggle()">
+          <mat-list-item role="listitem" (click)="panelReport=panelReport?false:true;drawer.toggle()">
             <mat-icon class="menu-icon">chevron_right</mat-icon> Hotels Booking
           </mat-list-item>
 
-          <mat-list-item role="listitem" (click)="drawer.toggle()">
+          <mat-list-item role="listitem" (click)="panelReport=panelReport?false:true;drawer.toggle()">
             <mat-icon class="menu-icon">chevron_right</mat-icon> Buses Booking
           </mat-list-item>
 
-          <mat-list-item role="listitem" (click)="drawer.toggle()">
+          <mat-list-item role="listitem" (click)="panelReport=panelReport?false:true;drawer.toggle()">
             <mat-icon class="menu-icon">chevron_right</mat-icon> Cabs Booking
           </mat-list-item>
 
-          <mat-list-item role="listitem" (click)="drawer.toggle()">
+          <mat-list-item role="listitem" (click)="panelReport=panelReport?false:true;drawer.toggle()">
             <mat-icon class="menu-icon">chevron_right</mat-icon> Restraurants Orders
           </mat-list-item>
         
