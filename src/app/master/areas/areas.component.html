@@ -5,9 +5,10 @@
   <div class="row mt-1">
     <div class="col-lg-4 col-12">
       <div class="row">
-        <div class="col-lg-2 col-3"><button mat-raised-button	class="m-1">Add</button></div>
-        <div class="col-lg-2 col-3"><button mat-raised-button	class="m-1">Edit</button></div>
-        <div class="col-lg-2 col-3"><button mat-raised-button	class="m-1">Delete</button></div>
+        <div class="col-lg-2 col-3"><button mat-raised-button	class="ml-auto mr-auto" (click)="openDialog()">Add</button></div>
+        <div class="col-lg-2 col-3"><button mat-raised-button	class="ml-auto mr-auto" #editDetails [mdePopoverTriggerFor]="themePopover" [mdePopoverTargetAt]="editDetails" mdePopoverTriggerOn="click">Edit</button></div>
+        <div class="col-lg-2 col-3"><button mat-raised-button	class="ml-auto mr-auto">View</button></div>
+        <div class="col-lg-2 col-3"><button mat-raised-button	class="ml-auto mr-auto">Delete</button></div>
       </div>
     </div>
   </div>
@@ -31,3 +32,7 @@
   </ag-grid-angular>
   </div>
 </div>
+
+<mde-popover #themePopover="mdePopover" [mdePopoverOverlapTrigger]="false" [mdePopoverCloseOnClick]="false" [mdePopoverOffsetX]="-16" [mdePopoverOffsetY]="-10" [mdePopoverArrowOffsetX]="58" mdePopoverArrowColor="#FFFFFF">
+  <app-area-details></app-area-details>
+</mde-popover>

@@ -25,11 +25,13 @@ import {
 import { SigninComponent } from './signin/signin.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     NavigationComponent,
+
   
     
   ],

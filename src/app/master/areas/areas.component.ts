@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AgGridNg2 } from 'ag-grid-angular';
+import {MatDialog} from '@angular/material';
+import { AreaDetailsComponent } from './area-details/area-details.component';
 @Component({
   selector: 'app-areas',
   templateUrl: './areas.component.html',
@@ -19,7 +21,7 @@ export class AreasComponent implements OnInit {
 paginationNumberFormatter;
 rowData: any;
 paginationPageSize = 20;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public dialog: MatDialog) { }
 
 
   defaultColDef = {
@@ -42,6 +44,20 @@ paginationPageSize = 20;
     };
 
   }
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AreaDetailsComponent, {
+      width: '100%',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
+  }
+
 
   onSelectionChanged(event) {
     var selectedRows = event.api.getSelectedRows();

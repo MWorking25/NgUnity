@@ -20,6 +20,7 @@ import {
   MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule,
   MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule
 } from '@angular/material';
+import { MdePopoverModule } from '@material-extended/mde';
 import { ElementsRoutingModule } from './elements-routing.module';
 import { AreasComponent } from '../master/areas/areas.component';
 import { HotelsComponent } from '../master/hotels/hotels.component';
@@ -34,7 +35,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 import { OffersComponent } from '../master/offers/offers.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { RailwayApisComponent } from '../master/railway-apis/railway-apis.component';
-
+import { AreaDetailsComponent } from '../master/areas/area-details/area-details.component';
 @NgModule({
   declarations: [
     AreasComponent,
@@ -50,7 +51,8 @@ import { RailwayApisComponent } from '../master/railway-apis/railway-apis.compon
     OffersComponent,
     NavigationComponent,  
     RailwayApisComponent,
-    ThemesDirective
+    ThemesDirective,
+    AreaDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -64,6 +66,7 @@ import { RailwayApisComponent } from '../master/railway-apis/railway-apis.compon
     CdkTreeModule,
     CdkStepperModule,
     DragDropModule,
+    MdePopoverModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -101,6 +104,8 @@ import { RailwayApisComponent } from '../master/railway-apis/railway-apis.compon
     MatTreeModule,
     ScrollingModule,
     PortalModule,
-  ]
+    
+  ],
+  entryComponents:[AreaDetailsComponent]
 })
 export class ElementsModule { }
