@@ -13,6 +13,8 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 import { OffersComponent } from '../master/offers/offers.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { RailwayApisComponent } from '../master/railway-apis/railway-apis.component';
+import { AreaDetailsComponent } from '../master/areas/area-details/area-details.component';
+
 const routes: Routes = [
   {path:'',component:NavigationComponent,children:[
     {path:'dashboard',component:DashboardComponent},
@@ -26,6 +28,7 @@ const routes: Routes = [
     {path:'restraurants',component:RestraurantsComponent},
     {path:'offers',component:OffersComponent},
     {path:'railways',component:RailwayApisComponent},
+    {path:'areadetails',component:AreaDetailsComponent},
     {path:'',redirectTo:'dashboard',pathMatch:"full"},
   ]},
 ];
